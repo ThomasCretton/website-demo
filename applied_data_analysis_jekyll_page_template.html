@@ -1,0 +1,205 @@
+---
+title: "Applied Data Analysis — Results"
+permalink: /results/
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Results and findings from an Applied Data Analysis project">
+  <title>{{ page.title }}</title>
+
+  <!-- Professional, minimal CSS (self-contained) -->
+  <style>
+    :root{
+      --bg: #ffffff;
+      --muted: #6b7280;
+      --accent: #0b5fff;
+      --card: #f8fafc;
+      --maxw: 1000px;
+      --radius: 10px;
+      --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%;}
+    body{
+      font-family:var(--sans);
+      background:var(--bg);
+      color:#0f172a;
+      margin:0;
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .container{max-width:var(--maxw);margin:36px auto;padding:24px;}
+
+    header.site{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    .brand{display:flex;gap:16px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,#0b5fff33,#8b5cf6);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff}
+    h1{font-size:1.6rem;margin:0}
+    .meta{color:var(--muted);font-size:.95rem}
+
+    nav.inline{display:flex;gap:12px}
+    a.navlink{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px}
+    a.navlink:hover{background:#f1f5f9;color:var(--accent)}
+
+    .hero{background:var(--card);padding:18px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(10,20,40,0.04);margin-bottom:22px}
+    .flex{display:flex;gap:20px;align-items:flex-start}
+    .main{flex:1}
+    .aside{width:280px}
+
+    section.card{background:#fff;padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(10,20,40,0.02);margin-bottom:18px}
+    h2{margin:0 0 10px 0;font-size:1.1rem}
+    h3{margin:8px 0;font-size:1rem;color:#0f172a}
+    p.lead{color:var(--muted);margin-top:0}
+
+    /* Figures grid */
+    .fig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+    figure{background:#fafafa;border:1px solid #eef2f7;padding:8px;border-radius:8px;margin:0}
+    figure img{width:100%;height:auto;display:block;border-radius:6px}
+    figcaption{font-size:.9rem;color:var(--muted);padding-top:6px}
+
+    /* Table */
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{padding:8px 10px;border-bottom:1px solid #f1f5f9;text-align:left}
+    th{background:#fbfdff;font-weight:600}
+
+    /* Small utilities */
+    .muted{color:var(--muted);font-size:.9rem}
+    .kbd{background:#111827;color:#fff;padding:4px 8px;border-radius:6px;font-size:.85rem}
+
+    footer{color:var(--muted);font-size:.9rem;text-align:center;margin-top:28px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .flex{flex-direction:column}
+      .aside{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="site">
+      <div class="brand">
+        <div class="logo">ADA</div>
+        <div>
+          <h1>{{ page.title }}</h1>
+          <div class="meta">Applied Data Analysis — Results · <span class="muted">Updated: {{ site.time | date: "%Y-%m-%d" }}</span></div>
+        </div>
+      </div>
+      <nav class="inline" aria-label="Main navigation">
+        <a class="navlink" href="/">Home</a>
+        <a class="navlink" href="#findings">Findings</a>
+        <a class="navlink" href="#figures">Figures</a>
+        <a class="navlink" href="#methods">Methods</a>
+      </nav>
+    </header>
+
+    <div class="hero card">
+      <p class="lead">This page presents the core findings of an Applied Data Analysis project. Use the sections below to describe your research question, present visual results, and comment on interpretation and limitations.</p>
+    </div>
+
+    <div class="flex">
+      <main class="main">
+
+        <!-- Findings section -->
+        <section id="findings" class="card">
+          <h2>Key Findings</h2>
+          <p class="muted">Summarise the most important results in 2–4 bullet points or short paragraphs.</p>
+          <ul>
+            <li>Backtracking increases total path length. (OLS coefficient ≈ 2.2; p &lt; 0.001)</li>
+            <li>Shortest path length is also a statistically significant predictor of total path length.</li>
+            <li>Model explains ~62% of variance (R² = 0.618).</li>
+          </ul>
+        </section>
+
+        <!-- Figures section -->
+        <section id="figures" class="card">
+          <h2>Figures</h2>
+          <p class="muted">Replace the image sources with your generated plots in <code>assets/images/</code> or any public path.</p>
+
+          <div class="fig-grid">
+            <figure>
+              <img src="/assets/images/heatmap-hexbin.png" alt="Hexbin: Backtracks vs Path Length">
+              <figcaption>Figure 1 — Hexbin of <em>Nbr_Backtrack</em> vs <em>Path_Length</em>.</figcaption>
+            </figure>
+
+            <figure>
+              <img src="/assets/images/partial-regression.png" alt="Partial regression of Backtracks on Path Length">
+              <figcaption>Figure 2 — Partial regression plot (controlled for Shortest_Path_Length).</figcaption>
+            </figure>
+
+            <figure>
+              <img src="/assets/images/binned-means.png" alt="Binned means of Path Length by Backtracks">
+              <figcaption>Figure 3 — Binned means with 95% CI.</figcaption>
+            </figure>
+
+            <figure>
+              <img src="/assets/images/residuals.png" alt="Model residuals diagnostics">
+              <figcaption>Figure 4 — Residual diagnostics (check skewness and kurtosis).</figcaption>
+            </figure>
+          </div>
+
+        </section>
+
+        <!-- Results summary / tables -->
+        <section id="results" class="card">
+          <h2>Model Results</h2>
+          <p class="muted">A concise presentation of regression results. You can paste the regression table or export it as HTML.</p>
+
+          <table>
+            <thead>
+              <tr><th>Variable</th><th>Coef.</th><th>Std. Err.</th><th>t</th><th>P &lt; 0.05</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Intercept</td><td>1.7494</td><td>0.056</td><td>31.14</td><td>Yes</td></tr>
+              <tr><td>Nbr_Backtrack</td><td>2.2005</td><td>0.012</td><td>190.69</td><td>Yes</td></tr>
+              <tr><td>Shortest_Path_Length</td><td>1.4076</td><td>0.019</td><td>73.01</td><td>Yes</td></tr>
+            </tbody>
+          </table>
+
+          <p class="muted">Notes: R-squared = 0.618; Durbin-Watson ≈ 1.93 (serial correlation check); inspect residuals for non-normality.</p>
+        </section>
+
+        <!-- Methods and reproducibility -->
+        <section id="methods" class="card">
+          <h2>Methods & Reproducibility</h2>
+          <p class="muted">Give a short description of data sources, preprocessing, and analysis scripts. Include links to your repository, notebooks and raw data.</p>
+          <ol>
+            <li>Data source: <code>data/processed/paths.csv</code></li>
+            <li>Key preprocessing steps: remove outliers, handle missing values, encode categorical variables.</li>
+            <li>Analysis: OLS regression using <code>statsmodels</code> in Python; plotting with <code>matplotlib</code>/<code>seaborn</code>.</li>
+            <li>Reproducibility: Attach notebooks in <code>docs/notebooks/</code> or link to GitHub Actions that build figures.</li>
+          </ol>
+        </section>
+
+      </main>
+
+      <aside class="aside">
+        <section class="card">
+          <h3>Quick links</h3>
+          <ul>
+            <li><a href="#findings">Findings</a></li>
+            <li><a href="#figures">Figures</a></li>
+            <li><a href="#methods">Methods</a></li>
+            <li><a href="/notebooks/">Notebooks</a></li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h3>Usage</h3>
+          <p class="muted">Save this file to your repo (e.g. <code>results/index.html</code>). Add plot images under <code>assets/images/</code>. GitHub Pages will serve it automatically.</p>
+          <p><span class="kbd">Tip</span> Use <code>jekyll build</code> locally to preview or enable GitHub Actions to build plots during CI.</p>
+        </section>
+
+      </aside>
+    </div>
+
+    <footer>
+      &copy; {{ site.time | date: "%Y" }} Applied Data Analysis — Results
+    </footer>
+  </div>
+
+</body>
+</html>
